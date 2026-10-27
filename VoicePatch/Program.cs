@@ -138,6 +138,16 @@ internal static class Program
             Console.WriteLine("[OK] The patch is not installed. Nothing to do.");
             return 0;
         }
+        if (current != PatchedSha256)
+        {
+            // Never restore an old backup over a file we did not patch - Steam may have
+            // updated the game since, and overwriting its DLL would corrupt the install.
+            Console.WriteLine("[FAIL] The game DLL is not a file this tool patched (" + Describe(current) + ").");
+            Console.WriteLine("       If the game was updated, the patch is already gone - nothing to do.");
+            Console.WriteLine("       Otherwise, in Steam: right-click the game -> Properties -> Installed");
+            Console.WriteLine("       Files -> 'Verify integrity of game files' restores the original.");
+            return 1;
+        }
         if (!File.Exists(backupPath))
         {
             Console.WriteLine("[FAIL] No backup found at " + backupPath);

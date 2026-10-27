@@ -1,5 +1,12 @@
 # Magical Girl ER — JP Voice Always-On Patch
 
+> [!IMPORTANT]
+> **As of game update Ver.1.0.1 (October 27, 2026) this patch is no longer needed** — the developer
+> officially added "Japanese character voices now play even when the game language is set to
+> English". Just let Steam update the game. This repository is kept for people still on older
+> builds, and its uninstaller refuses to touch game files it didn't patch, so updating after
+> patching is safe.
+
 A tiny patch for [Magical Girl ER](https://store.steampowered.com/app/4395870/) (Steam) that makes the
 **Japanese character voices play in every game language**.
 
@@ -73,12 +80,12 @@ The installer leaves the original file next to the patched one as
 
 ## Keeping it updated
 
-This patch is written against the game build from **October 2026** (Steam app 4395870). If the
-developer ships an update that changes the game's code, the patcher will detect the new file
-version and **refuse to modify it** instead of risking a broken game. When that happens:
-
-1. Get the updated build (let Steam update the game).
-2. Check this repository for an updated version of the patch.
+This patch targets the original (pre-1.0.1) Steam build from **October 2026** (Steam app 4395870).
+If the game is updated to a build that changes the code — which Ver.1.0.1 does, by including this
+feature officially — the patcher detects the new file version and **refuses to modify it** instead
+of risking a broken game, and the uninstaller refuses to restore its old backup over a newer
+official DLL. If you patch first and Steam updates afterward, the update simply replaces the
+patched file: there is nothing left to uninstall.
 
 ## How it works (for the curious)
 
